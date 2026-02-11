@@ -1,0 +1,33 @@
+[Unit]
+Description=Raspberry Pi Camera RTSP Stream with Face Detection
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/camera
+ExecStart=/usr/bin/python3 /home/pi/camera/camera_rtsp_stream.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=camera-rtsp
+
+# Ресурси та безпека
+MemoryLimit=512M
+CPUQuota=80%
+NoNewPrivileges=true
+
+# Устаткування
+DevicePolicy=closed
+DeviceAllow=/dev/video0 rw
+DeviceAllow=/dev/video11 rw
+DeviceAllow=/dev/video12 rw
+DeviceAllow=/dev/video13 rw
+DeviceAllow=/dev/video14 rw
+DeviceAllow=/dev/video15 rw
+DeviceAllow=/dev/video31 rw
+
+[Install]
+WantedBy=multi-user.target

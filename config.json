@@ -1,0 +1,114 @@
+{
+    "video": {
+        "comment": "Параметри відео захоплення",
+        "width": 1280,
+        "height": 720,
+        "fps": 30,
+        "bitrate": 4000000,
+        "description": {
+            "width": "Ширина кадру: 640, 1280 (менше = більше FPS)",
+            "height": "Висота кадру: 480, 720",
+            "fps": "Кадри на секунду: 20-30 (менше = менше навантаження)",
+            "bitrate": "Бітрейт H.264: 2000000-8000000 (більше = краща якість)"
+        }
+    },
+    "detection": {
+        "comment": "Параметри детекції облич",
+        "enabled": true,
+        "min_face_size_width": 30,
+        "min_face_size_height": 30,
+        "scale_factor": 1.05,
+        "min_neighbors": 4,
+        "draw_faces": true,
+        "draw_label": true,
+        "face_box_color": [
+            0,
+            255,
+            0
+        ],
+        "face_label_color": [
+            0,
+            255,
+            0
+        ],
+        "description": {
+            "scale_factor": "Масштаб пошуку: 1.01-1.3 (менше = точніше, але повільніше)",
+            "min_neighbors": "Мінімум сусідів: 2-8 (більше = менше помилок)",
+            "min_face_size": "Мінімальний розмір обличчя в пікселях"
+        }
+    },
+    "queue": {
+        "comment": "Параметри черг для асинхронної обробки",
+        "capture_queue_size": 30,
+        "encoding_queue_size": 15,
+        "process_queue_size": 10,
+        "description": {
+            "capture_queue_size": "Розмір черги захоплення (більше = більше RAM, менше затримки)",
+            "encoding_queue_size": "Розмір черги кодування (для H.264)",
+            "process_queue_size": "Розмір черги обробки (детекція)"
+        }
+    },
+    "rtsp": {
+        "comment": "Параметри RTSP потоку",
+        "enabled": true,
+        "port": 8554,
+        "address": "0.0.0.0",
+        "path": "/detected",
+        "description": {
+            "address": "0.0.0.0 = доступне з будь-якого адреса, 127.0.0.1 = тільки локально",
+            "port": "Порт RTSP сервера (дефолт 8554)",
+            "path": "RTSP шлях: /detected"
+        }
+    },
+    "web": {
+        "comment": "Параметри веб-сервера",
+        "enabled": true,
+        "port": 5000,
+        "address": "0.0.0.0",
+        "debug": false,
+        "mjpeg_quality": 85,
+        "stream_fps": 30,
+        "description": {
+            "address": "Адреса для прив'язки сервера",
+            "port": "Порт веб-сервера (дефолт 5000)",
+            "mjpeg_quality": "Якість JPEG: 50-95 (більше = краще, але більше трафіку)"
+        }
+    },
+    "logging": {
+        "comment": "Параметри логування",
+        "level": "INFO",
+        "file": "/tmp/camera_stream.log",
+        "max_size_mb": 100,
+        "backup_count": 5,
+        "description": {
+            "level": "DEBUG, INFO, WARNING, ERROR, CRITICAL",
+            "file": "Файл логів (дефолт /tmp/camera_stream.log)"
+        }
+    },
+    "performance": {
+        "comment": "Параметри оптимізації продуктивності",
+        "cpu_limit_percent": 80,
+        "memory_limit_mb": 512,
+        "enable_hardware_encoder": true,
+        "encoder_type": "h264_v4l2m2m",
+        "description": {
+            "enable_hardware_encoder": "Використовувати апаратне кодування (h264_v4l2m2m)",
+            "encoder_type": "Тип кодера: h264_v4l2m2m (рекомендується), libx264 (програмний)"
+        }
+    },
+    "camera": {
+        "comment": "Параметри камери",
+        "device": 0,
+        "auto_white_balance": true,
+        "auto_exposure": true,
+        "brightness": 0,
+        "contrast": 1.0,
+        "saturation": 1.0,
+        "sharpness": 1.0,
+        "description": {
+            "device": "Номер пристрою камери (0 = /dev/video0)",
+            "brightness": "-100 до 100",
+            "contrast": "0.5 до 2.0"
+        }
+    }
+}

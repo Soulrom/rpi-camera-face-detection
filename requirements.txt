@@ -1,0 +1,13 @@
+#    Raspberry Pi 4 B + IMX290 IR-CUT Camera
+# Python version: 3.9+
+
+opencv-python==4.8.1.78
+numpy==1.24.3
+picamera2==0.3.17
+Flask==2.3.2
+Werkzeug==2.3.6
+click==8.1.3
+itsdangerous==2.1.2
+Jinja2==3.1.2
+MarkupSafe==2.1.1
+
